@@ -8,10 +8,11 @@ class ProductService {
     try {
       final response = await _dio.get('products');
 
-      if (response.statusCode == 200 && response.data != null)
+      if (response.statusCode == 200 && response.data != null) {
         return (response.data as List)
           .map((p) => Product.fromJson(p))
           .toList();
+      }
     } catch (error) {
       print(error);
     }
