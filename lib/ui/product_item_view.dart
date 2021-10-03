@@ -15,8 +15,27 @@ class ProductItemView extends StatelessWidget {
       viewModelBuilder: () => ProductItemViewModel(),
       builder: (context, model, child) => Card(
         elevation: 0,
-        child: Text("${product?.name}"),
+        child: ListTile(
+          leading: _buildProductImage(product?.image),
+          title: Text("${product?.name}"),
+          subtitle: Text("${product?.category}"),
+          trailing: Text("${product?.price}"),
+        ),
       )
     );
+  }
+
+  Widget _buildProductImage(String? url) {
+    return (url != null) 
+    ? ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: 60,
+          minWidth: 60,
+          maxHeight: 60,
+          maxWidth: 60
+        ),
+        child: Image.network(url),
+      )
+    : SizedBox();
   }
 }
