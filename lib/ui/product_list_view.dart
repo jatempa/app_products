@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import 'package:app_products/models/Product.dart';
+import 'package:app_products/ui/product_item_view.dart';
 import 'package:app_products/ui/product_list_viewmodel.dart';
 
 class ProductListView extends StatelessWidget {
@@ -19,8 +21,20 @@ class ProductListView extends StatelessWidget {
         ? Center(
             child: CircularProgressIndicator(),
           )
-        : Text("${model.products}"),
+        : _buildList(model.products),
       ),
+    );
+  }
+
+  Widget _buildList(List<Product>?  products) {
+    if (products?.length == 0)
+      return Center(child: Text("There is no products to show"));
+
+    return ListView.builder(
+      itemCount: products?.length,
+      itemBuilder: (context, index) {
+        return ProductItemView(product: products![index]);
+      },
     );
   }
 }
