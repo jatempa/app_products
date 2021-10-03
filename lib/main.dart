@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-void main() => runApp(MyApp());
+import 'package:app_products/di/app.locator.dart';
+import 'package:app_products/di/app.router.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
 
@@ -12,11 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Demo"),
-        ),
-      ),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }
