@@ -4,6 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'package:app_products/models/Product.dart';
 import 'package:app_products/ui/product_item_view.dart';
 import 'package:app_products/ui/product_list_viewmodel.dart';
+import 'package:app_products/ui/widgets/product_data_search.dart';
 
 class ProductListView extends StatelessWidget {
   const ProductListView({Key? key}) : super(key: key);
@@ -16,6 +17,19 @@ class ProductListView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text(model.title),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () async {
+                final selectedProduct = await showSearch<Product?>(
+                  context: context,
+                  delegate: ProductDataSearch(products: model.products)
+                );
+
+                print(selectedProduct);
+              }
+            )
+          ],
         ),
         body: (model.isBusy)
         ? Center(
