@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app_products/models/Product.dart';
+import 'package:app_products/ui/widgets/product_image.dart';
 
 class ProductItemAlertDialog extends StatefulWidget {
   final Product product;
@@ -17,7 +18,14 @@ class _ProductItemAlertDialogState extends State<ProductItemAlertDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('${widget.product.name}'),
-      content: Text('${widget.product.description}'),
+      content: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          ProductImage(url: widget.product.image),
+          Text('${widget.product.description}'),
+        ],
+      ),
       actions: [],
     );
   }
