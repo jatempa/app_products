@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 
 import 'package:app_products/models/Product.dart';
 import 'package:app_products/ui/product_item_viewmodel.dart';
+import 'package:app_products/ui/widgets/product_image.dart';
 
 class ProductItemView extends StatelessWidget {
   final Product? product;
@@ -16,26 +17,12 @@ class ProductItemView extends StatelessWidget {
       builder: (context, model, child) => Card(
         elevation: 0,
         child: ListTile(
-          leading: _buildProductImage(product?.image),
+          leading: ProductImage(url: product?.image),
           title: Text("${product?.name}"),
           subtitle: Text("${product?.category}"),
           trailing: Text("${product?.price}"),
         ),
       )
     );
-  }
-
-  Widget _buildProductImage(String? url) {
-    return (url != null) 
-    ? ConstrainedBox(
-        constraints: BoxConstraints(
-          minHeight: 60,
-          minWidth: 60,
-          maxHeight: 60,
-          maxWidth: 60
-        ),
-        child: Image.network(url),
-      )
-    : SizedBox();
   }
 }
