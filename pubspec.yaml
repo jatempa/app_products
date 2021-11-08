@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dio: ^4.0.0
+  dio: ^4.0.1
   equatable: ^2.0.3
   freezed_annotation: ^0.14.3
   json_annotation: ^4.0.1
