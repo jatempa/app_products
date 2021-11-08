@@ -5,6 +5,7 @@ import 'package:app_products/models/Product.dart';
 import 'package:app_products/ui/product_item_view.dart';
 import 'package:app_products/ui/product_list_viewmodel.dart';
 import 'package:app_products/ui/widgets/product_data_search.dart';
+import 'package:app_products/ui/widgets/product_item_alert_dialog.dart';
 
 class ProductListView extends StatelessWidget {
   const ProductListView({Key? key}) : super(key: key);
@@ -26,7 +27,15 @@ class ProductListView extends StatelessWidget {
                   delegate: ProductDataSearch(products: model.products)
                 );
 
-                print(selectedProduct);
+                if (selectedProduct != null) {
+                  showDialog(
+                    barrierDismissible: true,
+                    context: context,
+                    builder: (context) => ProductItemAlertDialog(
+                      product: selectedProduct
+                    )
+                  );
+                }
               }
             )
           ],

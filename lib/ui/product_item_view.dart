@@ -4,6 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'package:app_products/models/Product.dart';
 import 'package:app_products/ui/product_item_viewmodel.dart';
 import 'package:app_products/ui/widgets/product_image.dart';
+import 'package:app_products/ui/widgets/product_item_alert_dialog.dart';
 
 class ProductItemView extends StatelessWidget {
   final Product? product;
@@ -21,6 +22,17 @@ class ProductItemView extends StatelessWidget {
           title: Text("${product?.name}"),
           subtitle: Text("${product?.category}"),
           trailing: Text("${product?.price}"),
+          onTap: () {
+            if (product != null) {
+              showDialog(
+                barrierDismissible: true,
+                context: context,
+                builder: (context) => ProductItemAlertDialog(
+                  product: product!
+                )
+              );
+            }
+          },
         ),
       )
     );
