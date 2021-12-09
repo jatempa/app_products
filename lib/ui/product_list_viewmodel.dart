@@ -10,7 +10,7 @@ class ProductListViewModel extends BaseViewModel {
   late List<Product>? _products = [];
   List<Product>? get products => _products;
 
-  void fetchProducts() async {
+  Future<void> fetchProducts() async {
     try {
       setBusy(true);
       _products = await _productsService.fetchProducts();
