@@ -9,6 +9,7 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../api/api.dart';
 import '../services/ProductService.dart';
 
 final locator = StackedLocator.instance;
@@ -19,5 +20,6 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
       environment: environment, environmentFilter: environmentFilter);
 
 // Register dependencies
+  locator.registerLazySingleton(() => Api());
   locator.registerLazySingleton(() => ProductService());
 }
