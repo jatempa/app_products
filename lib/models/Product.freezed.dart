@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'Product.dart';
@@ -38,7 +39,7 @@ class _$ProductTearOff {
     );
   }
 
-  Product fromJson(Map<String, Object> json) {
+  Product fromJson(Map<String, Object?> json) {
     return Product.fromJson(json);
   }
 }
@@ -213,32 +214,26 @@ class _$_Product extends _Product {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Product &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.category, category) ||
-                const DeepCollectionEquality()
-                    .equals(other.category, category)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.price, price) ||
-                const DeepCollectionEquality().equals(other.price, price)));
+        (other.runtimeType == runtimeType &&
+            other is _Product &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.price, price));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(image) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(price);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(price));
 
   @JsonKey(ignore: true)
   @override
@@ -264,18 +259,18 @@ abstract class _Product extends Product {
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  String? get category => throw _privateConstructorUsedError;
+  String? get category;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  String? get image => throw _privateConstructorUsedError;
+  String? get image;
   @override
   @JsonKey(name: 'title')
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
-  double? get price => throw _privateConstructorUsedError;
+  double? get price;
   @override
   @JsonKey(ignore: true)
   _$ProductCopyWith<_Product> get copyWith =>
