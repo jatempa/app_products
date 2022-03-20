@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app_products/api/api.dart';
 import 'package:app_products/models/Product.dart';
 
@@ -14,7 +16,7 @@ class ProductService {
           .toList();
       }
     } catch (error) {
-      print(error);
+      log(error.toString());
     }
 
     return [];

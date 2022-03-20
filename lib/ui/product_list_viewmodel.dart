@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:stacked/stacked.dart';
 
 import 'package:app_products/di/app.locator.dart';
@@ -15,8 +17,8 @@ class ProductListViewModel extends BaseViewModel {
       setBusy(true);
       _products = await _productsService.fetchProducts();
       notifyListeners();
-    } catch (e) {
-      print(e);
+    } catch (error) {
+      log(error.toString());
     } finally {
       setBusy(false);
     }
